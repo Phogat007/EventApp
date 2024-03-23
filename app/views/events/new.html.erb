@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    form {
+      width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="file"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: #dc3545;
+      font-size: 0.9em;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+  </style>
+    <%= javascript_importmap_tags %>
+</head>
+<body>
+
+  <%= form_with(model: @event, local: true) do |form| %>
+ <div>
+    <%= form.label :name, "Event Name:" %>
+    <%= form.text_field :name, required: true %>
+    <div class="error" id="eventNameError"></div>
+ </div>
+
+ <div>
+    <%= form.label :date, "Date:" %>
+    <%= form.date_field :date, required: true %>
+    <div class="error" id="eventDateError"></div>
+ </div>
+
+ <div>
+    <%= form.label :place, "Place:" %>
+    <%= form.text_field :place, required: true %>
+    <div class="error" id="eventPlaceError"></div>
+ </div>
+
+ <div>
+    <%= form.label :coordinator_name, "Coordinator Name:" %>
+    <%= form.text_field :coordinator_name, required: true %>
+    <div class="error" id="coordinatorNameError"></div>
+ </div>
+
+ <div>
+    <%= form.label :department, "Department:" %>
+    <%= form.text_field :department, required: true %>
+    <div class="error" id="departmentError"></div>
+ </div>
+
+ <!--<div>
+    <%= form.label :winner_name, "Winner Name:" %>
+    <%= form.text_field :winner_name %>
+ </div>
+
+ <div>
+    <%= form.label :approved, "Approved:" %>
+    <%= form.check_box :approved %>
+ </div>-->
+
+ <div>
+    <%= form.submit "Submit" %>
+ </div>
+<% end %>
+
+  <script>
+    const form = document.getElementById('eventForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (validateForm()) {
+        // Form is valid, you can submit the data or perform any action here
+        alert('Form submitted successfully!');
+        form.reset();
+      }
+    });
+
+    function validateForm() {
+      let isValid = true;
+
+      // Resetting all error messages
+      const errorMessages = document.querySelectorAll('.error');
+      errorMessages.forEach(function(element) {
+        element.textContent = '';
+      });
+
+      // Event Name validation
+      const eventName = document.getElementById('eventName').value;
+      if (!eventName) {
+        document.getElementById('eventNameError').textContent = 'Event Name is required';
+        isValid = false;
+      }
+
+      // Event Date validation
+      const eventDate = document.getElementById('eventDate').value;
+      if (!eventDate) {
+        document.getElementById('eventDateError').textContent = 'Date is required';
+        isValid = false;
+      }
+
+      // Event Place validation
+      const eventPlace = document.getElementById('eventPlace').value;
+      if (!eventPlace) {
+        document.getElementById('eventPlaceError').textContent = 'Place is required';
+        isValid = false;
+      }
+
+      // Coordinator Name validation
+      const coordinatorName = document.getElementById('coordinatorName').value;
+      if (!coordinatorName) {
+        document.getElementById('coordinatorNameError').textContent = 'Coordinator Name is required';
+        isValid = false;
+      }
+
+      // Department validation
+      const department = document.getElementById('department').value;
+      if (!department) {
+        document.getElementById('departmentError').textContent = 'Department is required';
+        isValid = false;
+      }
+
+      // Event Photos validation
+      const eventPhotos = document.getElementById('eventPhotos').files;
+      if (eventPhotos.length > 4) {
+        document.getElementById('eventPhotosError').textContent = 'Maximum 4 photos allowed';
+        isValid = false;
+      } else {
+        for (let i = 0; i < eventPhotos.length; i++) {
+          const photoType = eventPhotos[i].type.split('/')[1];
+          if (photoType !== 'jpeg' && photoType !== 'png') {
+            document.getElementById('eventPhotosError').textContent = 'Photos must be in JPEG or PNG format';
+            isValid = false;
+            break;
+          }
+        }
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

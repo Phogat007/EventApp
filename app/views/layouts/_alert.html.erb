@@ -1,0 +1,14 @@
+<!-- app/views/layouts/_alert.html.erb -->
+<% if notice %>
+ <div class="alert alert-success" id="notice-alert">
+    <%= notice %>
+    <button type="button" class="close" onclick="hideAlert('notice-alert')">&times;</button>
+ </div>
+<% end %>
+
+<% if alert %>
+ <div class="alert alert-danger" id="alert-alert">
+    <%= alert %>
+    <button type="button" class="close" onclick="hideAlert('alert-alert')">&times;</button>
+ </div>
+<% end %>

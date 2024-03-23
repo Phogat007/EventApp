@@ -1,0 +1,101 @@
+<style>
+.event-show {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.event-details {
+    margin-bottom: 20px;
+}
+
+.event-details p {
+    margin-bottom: 10px;
+}
+
+.event-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px; /* Adjust the gap between images as needed */
+}
+
+.image-container {
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the entire area without distorting its aspect ratio */
+}
+
+.event-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<div class="event-show">
+ <h1><%= @event.name %></h1>
+ <div class="event-details">
+    <p><strong>Date:</strong> <%= @event.date.strftime("%B %d, %Y") %></p>
+    <p><strong>Place:</strong> <%= @event.place %></p>
+    <p><strong>Coordinator:</strong> <%= @event.coordinator_name %></p>
+    <p><strong>Department:</strong> <%= @event.department %></p>
+    <% if (@event.winner_name != "") || (@event.winner_name != nil) %>
+        <p><strong>Winner:</strong> <%= @event.winner_name %></p>
+    <% end %>
+    <p><strong>Approved:</strong> <%= @event.approved ? 'Yes' : 'No' %></p>
+    <p><strong>Created by:</strong> <%= @event.user.name %><%= @event.user.is_admin ? ' (admin)' : '' %></p></p>
+ </div>
+
+<div class="image-row">
+ <% @event.event_photos.each do |photo| %>
+    <div class="image-container">
+      <%= image_tag url_for(photo), class: "event-photo" %>
+    </div>
+ <% end %>
+</div>
+
+ <div class="event-actions">
+   <!-- app/views/events/index.html.erb or wherever you want to display the button -->
+   <% if current_user.is_admin %>
+<% if !@event.approved %>
+<%= link_to 'Approve', event_path(@event, event: { approved: true }), data: {turbo_method: :patch}, class: 'btn btn-primary' %>
+<% end %>
+    <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
+    <%= link_to 'Delete', @event, data: { confirm: 'Are you sure?', turbo_method: :delete, turbo_action: 'replace' }, class: 'btn' %>
+    <% end %>
+    <% if current_user == @event.user %>
+    <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
+    <% end %>
+ </div>
+</div>
+
+<% if @event.approved %>
+ <%= link_to 'Download Event Details', download_event_path(@event), class: "download-link" %>
+<% end %>

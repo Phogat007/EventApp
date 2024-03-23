@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2024-03-20 15:00:00
+  place: MyString
+  coordinator_name: MyString
+  department: MyString
+  winner_name: MyString
+  approved: false
+  user: one
+
+two:
+  name: MyString
+  date: 2024-03-20 15:00:00
+  place: MyString
+  coordinator_name: MyString
+  department: MyString
+  winner_name: MyString
+  approved: false
+  user: two

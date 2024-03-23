@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+.body-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left-container {
+  width: 55%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #ad0059a4, #ff0224a2);
+  overflow: hidden;
+  position: relative;
+}
+.text-field {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  color: #b8b8b8;
+}
+.logo-div {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+.logo-div ion-icon {
+  font-size: 26px;
+  color: #fff;
+  margin-right: 7px;
+}
+.logo-div .logo-name {
+  font-size: 19px;
+  color: #fff;
+}
+.text-field .welcome-note {
+  font-size: 17px;
+  line-height: 49px;
+  position: relative;
+}
+.welcome-note::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  background-color: #b8b8b8;
+  bottom: 5px;
+  left: 0;
+  animation: width-fill 6s infinite;
+}
+@keyframes width-fill {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 40%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+.text-field p {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+.left-container .img-box {
+  width: 100%;
+  height: 100%;
+  background-image: url(Aa.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -150px;
+  position: relative;
+  z-index: -1;
+}
+
+.right-container {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgb(243, 243, 243);
+}
+.copyright-line {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 400;
+}
+
+/* ---------  Form Box CSS  -------- */
+
+.form-box {
+  width: 350px;
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: -7px 12px 24px rgba(51, 51, 51, 0.058);
+}
+.form-wrapper {
+  width: 700px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+/* ---------  Sign Up CSS  -------- */
+
+.form-card {
+  width: 100%;
+  height: 100%;
+  padding: 70px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #333;
+}
+.title {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff0224a2;
+  position: relative;
+}
+.title::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 2px;
+  background-color: #ff0224a2;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  animation: title-line 3s infinite;
+}
+@keyframes title-line {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+form {
+  width: 100%;
+}
+.input-field {
+  width: 100%;
+  height: 45px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #333;
+  padding: 0 10px;
+}
+.input-field input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0 8px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #333;
+}
+input::placeholder {
+  color: #333;
+  font-size: 13px;
+  font-weight: 400;
+}
+.signup-box p {
+  font-size: 13px;
+}
+.term-conditions {
+  display: flex;
+  align-items: center;
+  margin: 16px 0 28px 0;
+}
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 9px;
+  cursor: pointer;
+}
+.form-button {
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #ff0224a2;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin-bottom: 24px;
+  background-color: #ff0224a2;
+  color: #fff;
+}
+
+.signin-link {
+  display: flex;
+  align-items: center;
+}
+.signin-link p {
+  font-size: 14px;
+  margin-right: 6px;
+}
+.signin-link a {
+  color: #333;
+  font-size: 14px;
+}
+
+/* ---------  Sign In CSS  -------- */
+
+.forgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 19px 0 25px 0;
+}
+.remember {
+  display: flex;
+  align-items: center;
+}
+.forgot a {
+  color: #fff;
+}

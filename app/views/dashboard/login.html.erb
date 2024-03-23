@@ -1,0 +1,84 @@
+<section class="body-container">
+  <div class="left-container">
+    <div class="text-field">
+      <h2 class="welcome-note">Welcome to My Dashboard</h2>
+      <p>I need to access your login</p>
+    </div>
+    <div class="logo-div">
+      <ion-icon name="list-box"></ion-icon>
+      <h2 class="logo-name">My Dashboard</h2>
+    </div>
+    <div class="img-box"></div>
+  </div>
+
+  <div class="right-container">
+    <p class="copyright-line">Copyright @ 2024 | All right reserved.</p>
+    <div class="form-box">
+      <div class="form-wrapper">
+        <div class="signup-box form-card">
+          <h2 class="title">Hello Friend !</h2>
+          <%= form_for(User, as: @user1, url: registration_path(@user1)) do |f|%> 
+          <%= render "devise/shared/error_messages" , resource: @user1 %>
+
+          <div class="input-field">
+            <%= f.label :name, class: "sr-only" %> <%= f.text_field :name, placeholder: "Name" , required: true, autofocus: true, autocomplete: "name" , id: "user1_name" %>
+          </div>
+
+          <div class="input-field">
+            <%= f.label :email, class: "sr-only" %> <%= f.email_field :email, placeholder: "Email" , required: true, autofocus: true, autocomplete: "email" , id: "user1_email" %>
+          </div>
+
+          <div class="input-field">
+            <%= f.label :password, class: "sr-only" %> <%= f.password_field :password, placeholder: "Password" , required: true, autocomplete: "new-password" , id: "user1_password" %> <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+          </div>
+
+          <div class="input-field">
+            <%= f.label :password_confirmation, class: "sr-only" %> <%= f.password_field :password_confirmation, placeholder: "Confirm Password" , required: true, autocomplete: "new-password" , id: "user1_password_confirmation" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" , class: "signup-btn form-button" %>
+          </div>
+          <% end %>
+
+          <div class="signin-link">
+            <p>Already have an Account ?</p>
+            <a href="#" id="signin-btn">Sign in</a>
+          </div>
+        </div>
+
+        <div class="signin-box form-card">
+          <h2 class="title">Welcome back !</h2>
+          <%= form_for(User, as: @user, url: session_path(@user)) do |f| %>
+          <div class="input-field">
+            <%= f.label :email, class: "sr-only" %> <%= f.email_field :email, placeholder: "Email" , required: true, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="input-field">
+            <%= f.label :password, class: "sr-only" %> <%= f.password_field :password, placeholder: "Password" , required: true, autocomplete: "current-password" %>
+          </div>
+
+          <%# <% if devise_mapping.rememberable? %>
+          <div class="forgot">
+            <div class="remember">
+              <%= f.check_box :remember_me %> <%= f.label :remember_me, "Remember me" %>
+            </div>
+            <%= link_to "Forgot Password" , "#" %>
+          </div>
+          <%# <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in" , class: "signup-btn form-button" %>
+          </div>
+          <% end %>
+          <div class="signin-link">
+            <p>Don't have an Account ?</p>
+            <a href="#" id="signup-btn">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <%= stylesheet_link_tag :dashboard %>
+    <%= javascript_include_tag :main %>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <section class="body-container">
+        <!-- SideBar Html Code -->
+        <div class="sidebar">
+            <div class="logo-div">
+                <ion-icon name="list-box"></ion-icon>
+                <p class="logo-name">My Dashboard</p>
+            </div>
+            <div class="links-div">
+                <ul class="link-list">
+                    <a class="links">
+                        <ion-icon name="browsers"></ion-icon>
+                        <p>Dashboard</p>
+                    </a>
+                    <a class="links">
+                        <ion-icon name="contacts"></ion-icon>
+                        <p>History</p>
+                    </a>
+                    <a class="links">
+                        <ion-icon name="images"></ion-icon>
+                        <p>About</p>
+                    </a>
+                    <a class="links">
+                        <ion-icon name="flower"></ion-icon>
+                        <p>Contact</p>
+                    </a>
+                </ul>
+            </div>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "logout-link" %>
+        </div>
+
+        <!-- Home Container Html Code -->
+        <div class="home-container">
+            <div class="navbar">
+                <%= "Welcome" + " " "#{current_user.name}" + " boi !" %>
+                <%# <%= image_tag("circle1.png", class: "dash-icon") %>
+            </div>
+            <div class="content-container">
+                <div class="tagline">
+                    <div class="text">
+                        <ion-icon name="analytics"></ion-icon>
+                        <p>Dashboard /</p>
+                    </div>
+                    <%= Date.current.strftime("%d %B %Y") %>
+                </div>
+                <div class="links-box">
+                    <a href="/events/new" class="links">
+                        
+                        <p>New Form</p>
+                        <ion-icon name="construct"></ion-icon>
+                    </a>
+                    <a href="/history" class="links">
+                        <p>History</p>
+                        <ion-icon name="images"></ion-icon>
+                    </a>
+                    <a href="#" class="links">
+                        <p>Download PDF</p>
+                        <ion-icon name="female"></ion-icon>
+                    </a>
+                    <% if current_user.is_admin? %>
+                    <a href="/admin/pending-events" class="links">
+                        <p>Pending Task</p>
+                        <ion-icon name="paper-plane"></ion-icon>
+                    </a>
+                    <% end %>
+                </div>
+                <div class="event-history">
+                    <p class="heading">Recent Events -</p>
+                    <ol>
+                        <% @events.each do |event| %>
+                            <li>
+                                <%= link_to event.name, event_path(event) %>
+                            </li>
+                        <% end %>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

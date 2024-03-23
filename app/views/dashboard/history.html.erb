@@ -1,0 +1,10 @@
+<div class="recent_events">
+                    <p class="heading">Forms submitted -</p>
+                    <ol>
+                        <% @h_events.each do |event| %>
+                            <li>
+                                <%= link_to event.name, event_path(event) %>
+                            </li>
+                        <% end %>
+                    </ol>
+                </div>

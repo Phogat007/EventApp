@@ -1,0 +1,11 @@
+<div class="recent_events">
+                    <p class="heading"> Download events</p>
+                    <ul>
+                        <% @events.each do |event| %>
+                            <li>
+                                <%= link_to event.name, event_path(event) %>
+                                <%= link_to 'Download Event Details', download_event_path(event), class: "download-link" %>
+                            </li>
+                        <% end %>
+                    </ul>
+</div>

@@ -44,7 +44,7 @@
         <!-- Home Container Html Code -->
         <div class="home-container">
             <div class="navbar">
-                <%= "Welcome" + " " "#{current_user.name}" + " boi !" %>
+                <%= "Welcome" +  " #{current_user.name}" %>
                 <%# <%= image_tag("circle1.png", class: "dash-icon") %>
             </div>
             <div class="content-container">
@@ -65,15 +65,16 @@
                         <p>History</p>
                         <ion-icon name="images"></ion-icon>
                     </a>
-                    <a href="#" class="links">
+                    <a href="/download" class="links">
                         <p>Download PDF</p>
                         <ion-icon name="female"></ion-icon>
                     </a>
                     <% if current_user.is_admin? %>
                     <a href="/admin/pending-events" class="links">
-                        <p>Pending Task</p>
-                        <ion-icon name="paper-plane"></ion-icon>
-                    </a>
+    <p>Pending Task</p>
+    <ion-icon name="paper-plane"></ion-icon>
+    <span class="task-count"><%= @p_events_count %></span> <!-- Display the actual task count here -->
+</a>
                     <% end %>
                 </div>
                 <div class="event-history">

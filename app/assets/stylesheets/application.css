@@ -45,3 +45,11 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.logout-link {
+  cursor:  pointer;
+}
+.logout-link:hover {
+  background-color: #ff0224a2;
+  color: #fff;
+}

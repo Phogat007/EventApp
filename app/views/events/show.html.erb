@@ -66,7 +66,7 @@
     <p><strong>Place:</strong> <%= @event.place %></p>
     <p><strong>Coordinator:</strong> <%= @event.coordinator_name %></p>
     <p><strong>Department:</strong> <%= @event.department %></p>
-    <% if (@event.winner_name != "") || (@event.winner_name != nil) %>
+    <% if @event.winner_name.present? %>
         <p><strong>Winner:</strong> <%= @event.winner_name %></p>
     <% end %>
     <p><strong>Approved:</strong> <%= @event.approved ? 'Yes' : 'No' %></p>

@@ -3,6 +3,10 @@ class DashboardController < ApplicationController
     before_action :admin_only, only: :pending_events
     def dashboard
         @events = Event.where(approved: true).order(date: :desc)
+        @p_events_count = Event.where(approved: false).count
+    end
+    def download
+        @events = Event.where(approved: true).order(date: :desc)
     end
     def pending_events
         @p_events = Event.where(approved: false).order(date: :desc)

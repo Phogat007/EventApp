@@ -80,5 +80,5 @@ test:
 production:
   <<: *default
   database: dms_project_production
-  username: dms_project
+  username: deploy
   password: <%= ENV["DMS_PROJECT_DATABASE_PASSWORD"] %>

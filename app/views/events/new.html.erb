@@ -59,7 +59,7 @@
 </head>
 <body>
 
-  <%= form_with(model: @event, local: true) do |form| %>
+  <%= form_with(model: @event, local: true, id: "eventForm") do |form| %>
  <div>
     <%= form.label :name, "Event Name:" %>
     <%= form.text_field :name, required: true %>

@@ -87,10 +87,9 @@
 <% if !@event.approved %>
 <%= link_to 'Approve', event_path(@event, event: { approved: true }), data: {turbo_method: :patch}, class: 'btn btn-primary' %>
 <% end %>
-    <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
     <%= link_to 'Delete', @event, data: { confirm: 'Are you sure?', turbo_method: :delete, turbo_action: 'replace' }, class: 'btn' %>
     <% end %>
-    <% if current_user == @event.user %>
+    <% if current_user == @event.user || current_user.is_admin %>
     <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
     <% end %>
  </div>

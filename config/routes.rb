@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get '/admin/pending-events', to: 'dashboard#pending_events'
   get '/history', to: 'dashboard#history'
   get 'download', to: 'dashboard#download'
+  get '/about', to: 'dashboard#about'
 end

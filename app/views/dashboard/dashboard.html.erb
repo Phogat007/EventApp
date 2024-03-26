@@ -24,11 +24,11 @@
                         <ion-icon name="browsers"></ion-icon>
                         <p>Dashboard</p>
                     </a>
-                    <a class="links">
+                    <%# <a class="links">
                         <ion-icon name="contacts"></ion-icon>
                         <p>History</p>
-                    </a>
-                    <a class="links">
+                    </a> %>
+                    <a href='/about' class="links">
                         <ion-icon name="images"></ion-icon>
                         <p>About</p>
                     </a>
@@ -58,6 +58,7 @@
                 <div class="links-box">
                     <a href="/events/new" class="links">
                         
+                        
                         <p>New Form</p>
                         <ion-icon name="construct"></ion-icon>
                     </a>
@@ -77,7 +78,7 @@
 </a>
                     <% end %>
                 </div>
-                <div class="event-history">
+                <!--<div class="event-history">
                     <p class="heading">Recent Events -</p>
                     <ol>
                         <% @events.each do |event| %>
@@ -86,7 +87,31 @@
                             </li>
                         <% end %>
                     </ol>
-                </div>
+                </div>-->
+
+                <div class="event-history">
+    <p class="heading">Recent Events -</p>
+    <table>
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Open</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @events.each_with_index do |event, index| %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= event.name %></td>
+                    <td><%= event.date.strftime("%d %B %Y") %></td>
+                    <td><%= link_to 'Show', event_path(event), class: 'show-btn' %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
             </div>
         </div>
     </section>

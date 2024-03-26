@@ -53,3 +53,101 @@
   background-color: #ff0224a2;
   color: #fff;
 }
+
+.recent_events {
+  width: 100%;
+}
+
+.heading {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.event-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.event-name {
+  flex-grow: 1;
+}
+
+.download-link {
+  margin-left: 20px;
+}
+
+/* Load the Font Awesome icons library */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Style the link container */
+.links {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Style the notification count badge */
+.task-count {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+}
+
+/* Style the bell icon */
+.links .fa-bell {
+  font-size: 24px;
+  color: black;
+  text-decoration: none;
+}
+/* */
+
+.event-history table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.event-history th, .event-history td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.event-history th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.event-history tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.event-history tr:hover {
+  background-color: #f1f1f1;
+}
+
+.event-history .show-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.event-history .show-btn:hover {
+  background-color: #0056b3;
+}

@@ -27,6 +27,9 @@ class DashboardController < ApplicationController
             redirect_to root_path
         end
     end
+    def about
+      
+    end
     private
     def authenticate
         if !user_signed_in?

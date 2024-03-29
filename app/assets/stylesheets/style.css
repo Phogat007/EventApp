@@ -14,9 +14,7 @@
   justify-content: space-between;
 }
 .left-container {
-  width: 55%;
   height: 100%;
-  background-image: linear-gradient(45deg, #ad0059a4, #ff0224a2);
   overflow: hidden;
   position: relative;
 }
@@ -25,6 +23,7 @@
   bottom: 20px;
   left: 40px;
   color: #b8b8b8;
+  z-index: 1;
 }
 .logo-div {
   position: absolute;
@@ -32,6 +31,7 @@
   left: 20px;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .logo-div ion-icon {
   font-size: 26px;
@@ -52,7 +52,7 @@
   position: absolute;
   width: 40%;
   height: 1px;
-  background-color: #b8b8b8;
+  background-color: #baffa6;
   bottom: 5px;
   left: 0;
   animation: width-fill 6s infinite;
@@ -68,20 +68,22 @@
     width: 0%;
   }
 }
+
+.foot-text{
+  color: white;
+}
 .text-field p {
   font-size: 12px;
   font-weight: 400;
-  opacity: 0.6;
 }
 .left-container .img-box {
-  width: 100%;
+  width: 50vw;
   height: 100%;
   background-image: url(Aa.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: -150px;
   position: relative;
-  z-index: -1;
 }
 
 .right-container {
@@ -136,7 +138,7 @@
   font-size: 19px;
   font-weight: 500;
   margin-bottom: 24px;
-  color: #ff0224a2;
+  color: #007bff;
   position: relative;
 }
 .title::after {
@@ -144,7 +146,7 @@
   content: "";
   width: 50%;
   height: 2px;
-  background-color: #ff0224a2;
+  background-color: #28a745;  /*#ffc107 */
   left: 50%;
   bottom: -2px;
   transform: translateX(-50%);
@@ -210,13 +212,20 @@ input[type="checkbox"] {
   border-radius: 50px;
   font-size: 16px;
   font-weight: 500;
-  border: 1px solid #ff0224a2;
+  border: 1px solid #187bff;
   outline: none;
   cursor: pointer;
   transition: all 0.5s;
   margin-bottom: 24px;
-  background-color: #ff0224a2;
+  background-color: #28a745;
   color: #fff;
+}
+
+.form-button:hover {
+  border-color: #28a745; /* Adjust border color as needed */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Lift the button up */
+  color: #000; /* Change text color to dark */
+  background-color: #ffc107; /* Change background color, adjust as needed */
 }
 
 .signin-link {

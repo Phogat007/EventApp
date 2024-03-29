@@ -2,8 +2,13 @@
                     <p class="heading">Forms submitted -</p>
                     <ol>
                         <% @h_events.each do |event| %>
-                            <li>
-                                <%= link_to event.name, event_path(event) %>
+                            <li class="event-item">
+                                <div class="event-details">
+                                    <%= link_to event.name, event_path(event), class: "event-name" %>
+                                    <p class="event-date"><%= event.date.strftime("%B %d, %Y") %></p>
+                                    
+                                
+                                </div>
                             </li>
                         <% end %>
                     </ol>

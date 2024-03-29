@@ -1,13 +1,35 @@
 <style>
+/* Base color scheme */
+:root {
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --secondary-color: #28a745;
+    --secondary-color-hover: #218838;
+    --tertiary-color: #ffc107;
+    --tertiary-color-hover: #d39e00;
+    --quaternary-color: #dc3545;
+    --quaternary-color-hover: #c82333;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --text-color: #212529;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+}
+
 .event-show {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+    background-color: var(--light-color); /* Use light color for better contrast */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .event-details {
     margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
 
 .event-details p {
@@ -18,12 +40,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px; /* Adjust the gap between images as needed */
+    gap: 10px;
 }
 
 .image-container {
-    width: 200px; /* Adjust the width as needed */
-    height: 200px; /* Adjust the height as needed */
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     margin: 10px;
     display: flex;
@@ -36,17 +58,20 @@
 .event-photo {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ensures the image covers the entire area without distorting its aspect ratio */
+    object-fit: cover;
 }
 
 .event-actions {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -55,7 +80,25 @@
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color-hover);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.download-link {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.download-link:hover {
+    color: var(--link-hover-color);
 }
 </style>
 
@@ -96,5 +139,7 @@
 </div>
 
 <% if @event.approved %>
+<% if @event.approved %>
  <%= link_to 'Download Event Details', download_event_path(@event), class: "download-link" %>
+<% end %>
 <% end %>

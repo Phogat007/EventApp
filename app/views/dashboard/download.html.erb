@@ -1,11 +1,13 @@
 <div class="recent_events">
-  <p class="heading">Download events</p>
-  <div class="event-table">
+ <p class="heading">Download events</p>
+ <div class="event-table">
     <% @events.each do |event| %>
       <div class="event-row">
         <%= link_to event.name, event_path(event), class: "event-name" %>
         <%= link_to 'Download Event Details', download_event_path(event), class: "download-link" %>
+        <p class="event-date"><%= event.date.strftime("%B %d, %Y") %></p>
+      
       </div>
     <% end %>
-  </div>
+ </div>
 </div>

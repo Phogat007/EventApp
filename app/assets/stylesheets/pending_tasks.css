@@ -1,0 +1,64 @@
+.recent_events {
+    width: 100%;
+    background-color: #f5f5f5; /* Light Gray Background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.recent_events .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.recent_events ol {
+    list-style: none;
+    padding: 0;
+}
+
+.recent_events li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.recent_events li:hover {
+    background-color: #f0f0f0; /* Light background on hover */
+}
+
+.recent_events .task-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.recent_events .task-date,
+.recent_events .task-status {
+    font-size: 14px;
+    color: #666;
+}
+
+.recent_events .task-date {
+    margin-bottom: 5px;
+}
+
+/* Additional styling for task details */
+.recent_events .task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between task details */
+}
+
+.recent_events .task-info p {
+    margin-top: 5px;
+}
+
+.recent_events .task-info p:first-child {
+    margin-top: 0;
+}

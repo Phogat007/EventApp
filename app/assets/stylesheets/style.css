@@ -77,7 +77,7 @@
   font-weight: 400;
 }
 .left-container .img-box {
-  width: 50vw;
+  width: 70vw;
   height: 100%;
   background-image: url(Aa.jpg);
   background-repeat: no-repeat;
@@ -217,15 +217,15 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.5s;
   margin-bottom: 24px;
-  background-color: #28a745;
+  background-color: #007bff;
   color: #fff;
 }
 
 .form-button:hover {
-  border-color: #28a745; /* Adjust border color as needed */
+  border-color: #187bff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Lift the button up */
-  color: #000; /* Change text color to dark */
-  background-color: #ffc107; /* Change background color, adjust as needed */
+  color: #fff;
+  background-color: #0056b3;
 }
 
 .signin-link {

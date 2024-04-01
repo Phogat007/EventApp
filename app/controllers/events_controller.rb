@@ -12,23 +12,24 @@ class EventsController < ApplicationController
   pdf.text "Date: #{@event.date}"
   pdf.text "Place: #{@event.place}"
   pdf.text "Coordinator: #{@event.coordinator_name}"
-  pdf.text "Winner name: #{@event.winner_name}"
+  pdf.text "Winner name: #{@event.winner_name}" if @event.winner_name.present?
 
-  # Add images
-  # @event.event_photos.each do |photo|
-  #   blob = photo.blob
-  #   image_url = Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true)
-
-  #   # Fetch the image data using open-uri
-  #   image_data = URI.open(image_url).read
-
-  #   # Use Prawn's image method to embed the image data in the PDF
-  #   pdf.image StringIO.new(image_data), width: 200, height: 150
-  #   pdf.move_down 20 # Add some space after the image
-  # end
+  # Add images side by side
+  @event.event_photos.each_with_index do |photo, index|
+    # Calculate the x position based on the index
+    x_position = index.even? ? 0 : pdf.bounds.width / 2
+    pdf.bounding_box([x_position, pdf.cursor], width: pdf.bounds.width / 2) do
+      image_data = StringIO.open(photo.download)
+      pdf.image image_data, width: pdf.bounds.width, height: 150
+    end
+    pdf.move_down 20 if index.even? # Add space after every second image
+  end
 
   # Add information about creator and approval
   pdf.text "Created by: #{@event.user.name}"
+
+  pdf.fill_gradient [0, pdf.cursor], [pdf.bounds.width, pdf.cursor], "000000", "FFFFFF"
+  pdf.text_box "JNU", at: [pdf.bounds.width / 2, pdf.cursor + 25], size: 20, align: :center
 
   send_data pdf.render, type: "application/pdf", filename: "#{@event.name} details.pdf"
  end

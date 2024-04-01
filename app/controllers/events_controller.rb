@@ -15,17 +15,13 @@ class EventsController < ApplicationController
   pdf.text "Winner name: #{@event.winner_name}"
 
   # Add images
-  # @event.event_photos.each do |photo|
-  #   blob = photo.blob
-  #   image_url = Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true)
+  @event.event_photos.each do |photo|
+    image_data = StringIO.open(photo.download)
+    # Use Prawn's image method to embed the image data in the PDF
+    pdf.image image_data, width: 200, height: 150
+    pdf.move_down 20 # Add some space after the image
 
-  #   # Fetch the image data using open-uri
-  #   image_data = URI.open(image_url).read
-
-  #   # Use Prawn's image method to embed the image data in the PDF
-  #   pdf.image StringIO.new(image_data), width: 200, height: 150
-  #   pdf.move_down 20 # Add some space after the image
-  # end
+  end
 
   # Add information about creator and approval
   pdf.text "Created by: #{@event.user.name}"

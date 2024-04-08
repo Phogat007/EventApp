@@ -1,10 +1,6 @@
 <!-- app/views/layouts/_alert.html.erb -->
 <% if notice %>
-<<<<<<< HEAD
- <div class="alert alert-success" id="alert">
-=======
- <div class="alert alert-success notice-alert" id="notice-alert" data-delay="0000">
->>>>>>> 39419af (testing)
+ <div class="alert alert-success" id="notice-alert">
     <%= notice %>
       <script>
         // Use setTimeout to hide the alert after 2 seconds
@@ -19,11 +15,7 @@
 <% end %>
 
 <% if alert %>
-<<<<<<< HEAD
- <div class="alert alert-danger" id="alert">
-=======
- <div class="alert alert-danger alert-alert" id="alert-alert" data-delay="0000">
->>>>>>> 39419af (testing)
+ <div class="alert alert-danger" id="alert-alert">
     <%= alert %>
       <script>
         setTimeout(function() {

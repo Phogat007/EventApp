@@ -1,11 +1,11 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.18.1"
 
-set :application, "dms_project"
-set :repo_url, "git@github.com:bhavyansh001/eventapp.git"
+set :application, "EventApp"
+set :repo_url, "git@github.com:bhavyansh001/EventApp.git"
 
 # Default branch is :master
-set :branch, 'main'
+set :branch, 'bhav_edit'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"

@@ -36,7 +36,6 @@ class EventsController < ApplicationController
 
  # GET /events
  def index
-    @events = Event.all
  end
 
  # GET /events/1
@@ -58,7 +57,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to '/', notice: 'Event was successfully created.'
     else
       render :new
     end
@@ -87,7 +86,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :date, :place, :coordinator_name, :department, :winner_name, :approved, :user_id, event_photos: [])
+      params.require(:event).permit(:name, :date, :place, :description, :coordinator_name, :department, :winner_name, :approved, :user_id, event_photos: [])
     end
 
   end

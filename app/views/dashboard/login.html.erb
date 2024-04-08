@@ -82,3 +82,25 @@
     </div>
   </div>
 </section>
+<script>
+  var formWrapper = document.getElementsByClassName("form-wrapper")[0];
+  var signInBtn = document.getElementById("signin-btn");
+  var signUpBtn = document.getElementById("signup-btn");
+
+  function showSignInForm() {
+    console.log("Showing sign-in form");
+    formWrapper.style.transform = "translateX(-350px)";
+  }
+
+  function showSignUpForm() {
+    console.log("Showing sign-up form");
+    formWrapper.style.transform = "translateX(0px)";
+  }
+  signInBtn.onclick = function () {
+    showSignInForm();
+  };
+
+  signUpBtn.onclick = function () {
+    showSignUpForm();
+  };
+</script>

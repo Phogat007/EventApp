@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/history', to: 'dashboard#history'
   get 'download', to: 'dashboard#download'
   get '/about', to: 'dashboard#about'
+  get '/contact', to: 'dashboard#contact'
 end

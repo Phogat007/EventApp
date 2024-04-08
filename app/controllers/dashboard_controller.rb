@@ -2,7 +2,8 @@ class DashboardController < ApplicationController
     before_action :authenticate, only: :dashboard
     before_action :admin_only, only: :pending_events
     def dashboard
-        @events = Event.where(approved: true).order(date: :desc)
+        @pending_events = Event.where(approved: false).order(date: :desc)
+        @approved_events = Event.where(approved: true).order(date: :desc)
         @p_events_count = Event.where(approved: false).count
     end
     def download
@@ -28,7 +29,8 @@ class DashboardController < ApplicationController
         end
     end
     def about
-      
+    end
+    def coantact
     end
     private
     def authenticate

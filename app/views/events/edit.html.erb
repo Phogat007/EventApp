@@ -16,7 +16,7 @@
       height: 100vh;
       background-color: #f4f4f4;
     }
-    form {
+    .form-class {
       width: 400px;
       padding: 20px;
       background-color: #fff;
@@ -58,7 +58,8 @@
   </style>
 </head>
 <body>
-  <%= form_with(model: @event, local: true, data_turbo_action: :replace, html: { id: 'eventForm' }) do |form| %>
+  <%= render 'layouts/side_view'%>
+  <%= form_with(model: @event, local: true, data_turbo_action: :replace, id: "eventForm", class: "form-class") do |form| %>
  <div>
     <%= form.label :name, "Event Name:" %>
     <%= form.text_field :name, required: true %>
@@ -88,6 +89,11 @@
     <%= form.text_field :department, required: true %>
     <div class="error" id="departmentError"></div>
  </div>
+
+ <div>
+ <%= form.label :description, "Description:" %>
+ <%= form.text_area :description, class: "form-input", required: true %>
+</div>
 
 <% if @event.approved %>
  <div>

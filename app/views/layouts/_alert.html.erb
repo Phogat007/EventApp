@@ -1,14 +1,29 @@
 <!-- app/views/layouts/_alert.html.erb -->
 <% if notice %>
- <div class="alert alert-success" id="notice-alert">
+ <div class="alert alert-success" id="alert">
     <%= notice %>
-    <button type="button" class="close" onclick="hideAlert('notice-alert')">&times;</button>
+      <script>
+        // Use setTimeout to hide the alert after 2 seconds
+        setTimeout(function() {
+          var alertElement = document.getElementById("alert");
+          if (alertElement) {
+            alertElement.style.display = "none";
+          }
+        }, 2000); // 2000 milliseconds = 2 seconds
+      </script>
  </div>
 <% end %>
 
 <% if alert %>
- <div class="alert alert-danger" id="alert-alert">
+ <div class="alert alert-danger" id="alert">
     <%= alert %>
-    <button type="button" class="close" onclick="hideAlert('alert-alert')">&times;</button>
+      <script>
+        setTimeout(function() {
+          var alertElement = document.getElementById("alert");
+          if (alertElement) {
+            alertElement.style.display = "none";
+          }
+        }, 2000); // 2000 milliseconds = 2 seconds
+      </script>
  </div>
 <% end %>

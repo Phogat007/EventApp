@@ -1,0 +1,23 @@
+<div class="sidebar">
+            <div class="logo-div">
+                <ion-icon name="list-box"></ion-icon>
+                <p class="logo-name">My Dashboard</p>
+            </div>
+            <div class="links-div">
+                <ul class="link-list">
+                    <a href='/'class="links">
+                        <ion-icon name="browsers"></ion-icon>
+                        <p>Dashboard</p>
+                    </a>
+                    <a href='/about' class="links">
+                        <ion-icon name="images"></ion-icon>
+                        <p>About</p>
+                    </a>
+                    <a href='/contact' class="links">
+                        <ion-icon name="flower"></ion-icon>
+                        <p>Contact</p>
+                    </a>
+                </ul>
+            </div>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "logout-link" %>
+</div>

@@ -32,10 +32,7 @@ gem "prawn"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 #
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

@@ -61,7 +61,7 @@ class EventsController < ApplicationController
 end
    # Footer (Assuming you have logo images for Registrar and Coordinator)
    pdf.bounding_box([0, 20], width: pdf.bounds.width, height: 50) do
-    # pdf.image "path/to/registrar_logo.png", at: [50, 0], width: 50, height: 50
+    pdf.image Rails.root.join('app', 'assets', 'images', 'rr.png'), at: [98, 63], width: 70, height: 50
     pdf.draw_text "Registrar", at: [110, 15], size: 12
 
     # pdf.image "path/to/coordinator_logo.png", at: [pdf.bounds.width - 100, 0], width: 50, height: 50

@@ -100,5 +100,12 @@
     <%= form.submit "Submit" %>
  </div>
 <% end %>
+<script>
+  // Add this script to your application layout or specific pages where you want to prevent going back
+window.history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    window.history.pushState(null, null, document.URL);
+});
+</script>
 </body>
 </html>

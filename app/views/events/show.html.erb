@@ -43,6 +43,14 @@
     gap: 10px;
 }
 
+.image-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    justify-items: center; /* Center items horizontally */
+}
+
+/* Ensure .image-container fits within the grid */
 .image-container {
     width: 200px;
     height: 200px;
@@ -138,7 +146,3 @@
     <% end %>
  </div>
 </div>
-
-<%# <% if @event.approved
- <%= link_to 'Download Event Details', download_event_path(@event), class: "download-link"
-<% end %>

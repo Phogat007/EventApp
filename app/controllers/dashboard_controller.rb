@@ -35,7 +35,7 @@ class DashboardController < ApplicationController
     private
     def authenticate
         if !user_signed_in?
-            flash[:alert] = 'You need to login or register to go to dashboard.'
+            flash[:alert] = 'You should be a verified user to go to dashboard.'
             redirect_to '/login'
         end
     end

@@ -1,16 +1,25 @@
-<h2>Resend confirmation instructions</h2>
+<div class="container">
+ <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="forgot-password-container">
+        <h2 class="forgot-password-header">Resend Confirmation Instructions</h2>
+        <p class="forgot-password-subtitle">Enter your email to receive a confirmation instructions link.</p>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "forgot-password-form" }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+          <div class="form-group">
+            <%= f.label :email, "Email Address", class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-input" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+          <div class="form-group">
+            <%= f.submit "Resend confirmation instructions", class: "form-submit-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+ </div>
+</div>
 
 <%= render "devise/shared/links" %>

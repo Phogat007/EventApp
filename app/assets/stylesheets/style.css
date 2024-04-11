@@ -248,7 +248,13 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  margin: 19px 0 25px 0;
+  margin: 25px 0; /* Increased margin for more spacing */
+}
+
+.link-container {
+ display: flex;
+ justify-content: center;
+ gap: 20px; /* Increased gap for more spacing between links */
 }
 .remember {
   display: flex;
@@ -257,3 +263,4 @@ input[type="checkbox"] {
 .forgot a {
   color: #fff;
 }
+

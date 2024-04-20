@@ -1,45 +1,61 @@
-EventApp: Event Management for Educational Institutions
-A streamlined Rails application designed to simplify event planning and organization throughout educational institutions.
+# EventApp
 
-Features
-Intuitive Event Creation: Easily set up events with details like title, description, date, time, location, and optional registration forms.
-Event Approval Workflow: Implement a pending event system for administrators to review and approve events.
-User Management: Basic user registration and login, potentially with role-based permissions for students, faculty, or administrators.
-Email Notifications: Automated emails for event updates, approvals, and reminders.
-Event Calendar: A visual calendar to showcase upcoming events.
-Event History: Track past events for reporting and analysis.
-Installation
-Prerequisites:
-Ruby version 3.3.0
-Rails (installation instructions)
-PostgreSQL database
-Clone the repository:
+EventApp is an event management system tailored for educational institutions. It simplifies event planning and organization, providing a streamlined platform for administrators, faculty, and students.
+
+## Features
+
+- **Intuitive Event Creation**: Easily set up events with details such as title, description, date, time, location, and more.
+- **Event Approval Workflow**: Implement a pending event system for administrators to review and approve events.
+- **User Management**: Basic user registration and login, potentially with role-based permissions for faculty, and administrators.
+- **Event History**: Track past events for reporting and analysis.
+
+## Installation
+
+### Prerequisites
+- Ruby version 3.3.0
+- Rails
+- PostgreSQL database
+
+### Setup
+1. Clone the repository:
+
 ```bash
-git clone https://github.com/your-username/EventApp.git
+git clone https://github.com/Phogat007/EventApp.git
 ```
-Install dependencies:
+2. Install dependencies:
+
 ```bash
 cd EventApp
 bundle install
 ```
-Database setup:
-Create a PostgreSQL database named EventApp (adjust names in config/database.yml if needed).
-Run migrations:
+3. Database setup:
+- Create a PostgreSQL database named EventApp (adjust names in `config/database.yml` if needed).
+- Set up database and run migrations:
 ```bash
+rails db:setup
 rails db:migrate
 ```
-Start the Rails server:
+### Usage
+
+1. Start the Rails server:
 ```bash
 rails server
 ```
-Development
-Testing: The app uses RSpec for testing. Run tests with rspec.
-Docker Support: A Dockerfile is included for streamlined setup in a production environment.
-Deployment
-For production environments, consider a hosting provider like Heroku, which offers easy integration with Rails applications. Optimize asset compilation for production before deployment.
+2. Access the application in your web browser at `http://localhost:3000`.
 
-Credits
-bhavyansh001
-phogat007
-Contributing
-We welcome contributions to EventApp! Please refer to our contributing guidelines for details on how to submit pull requests and bug reports.
+### Development Testing
+
+The app uses RSpec for testing. Run tests with `rspec`.
+
+### Docker Support
+
+A Dockerfile is included for streamlined setup in a production environment.
+
+## Deployment
+
+For production environments, consider a hosting provider like DigitalOcean, Fly, which offers easy integration with Rails applications. Optimize asset compilation for production before deployment.
+
+## Credits
+
+- bhavyansh001
+- phogat007

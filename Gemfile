@@ -21,8 +21,8 @@ gem "bootsnap", require: false
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails', '~> 6.1.0'
-  gem 'shoulda-matchers'
-  gem 'capybara', '>= 3.26'
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
 end

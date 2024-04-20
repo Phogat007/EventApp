@@ -6,7 +6,7 @@ EventApp is an event management system tailored for educational institutions. It
 
 - **Intuitive Event Creation**: Easily set up events with details such as title, description, date, time, location, and more.
 - **Event Approval Workflow**: Implement a pending event system for administrators to review and approve events.
-- **User Management**: Basic user registration and login, potentially with role-based permissions for faculty, and administrators.
+- **User Management**: Basic user registration and login, with role-based permissions for faculty, and administrators.
 - **Event History**: Track past events for reporting and analysis.
 
 ## Installation

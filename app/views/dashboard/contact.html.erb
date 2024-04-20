@@ -1,4 +1,53 @@
-<%= render 'layouts/side_view'%>
-<div class= 'home-container'>
-    <p>Contact details here, keep the above div as is</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+
+        .contact-section {
+            width: 100%;
+            height: 100vh;
+            background-color: #f5fcff;
+            color: #333;
+        }
+
+        .contact-heading {
+            width: 100%;
+            height: auto;
+            padding: 40px 10%;
+            font-size: 35px;
+            font-weight: 500;
+            background-color: blueviolet;
+            color: #fff;
+        }
+
+        .content-container {
+            padding: 100px 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <%= render 'layouts/side_view'%>
+<div class= 'home-container'><%= render 'layouts/side_view'%>
+    <section class="contact-section">
+        <div class="contact-heading">Contact Us</div>
+        <div class="content-container">
+            <p>Get in touch with us at our email ids: <a href="mailto:bhavyansh@diversepixel.com">bhavyansh@diversepixel.com</a> and <a href="mailto:mohit@diversepixel.com">mohit@diversepixel.com</a></p>
+        </div>
+    </section>
+    </div>
+</body>
+
+</html>

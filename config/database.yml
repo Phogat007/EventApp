@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: dms_project_production
+  database: EventApp
   username: deploy
-  password: <%= ENV["DMS_PROJECT_DATABASE_PASSWORD"] %>
+  password: <%= ENV["EVENT_APP_DATABASE_PASSWORD"] %>

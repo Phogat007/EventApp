@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
      before_action :configure_permitted_parameters, if: :devise_controller?
+   #   http_basic_authenticate_with name: "EventApp", password: Rails.application.credentials.dig(:email_setup, :password)
 
  protected
 

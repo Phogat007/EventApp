@@ -1,15 +1,21 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.18.1"
 
-set :application, "dms_project"
-set :repo_url, "git@github.com:bhavyansh001/eventapp.git"
+set :application, "EventApp"
+set :repo_url, "git@github.com:bhavyansh001/EventApp.git"
+set :branch, 'bhav_edit'
 
 # Default branch is :master
-set :branch, 'main'
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+#
+set :deploy_to, "/home/deploy/#{fetch :application}"
+
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads', 'storage'
+
+set :keep_releases, 5
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
-set :deploy_to, "/home/deploy/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -38,8 +44,3 @@ set :deploy_to, "/home/deploy/#{fetch :application}"
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-
-# Only keep the last 5 releases to save disk space
-set :keep_releases, 5

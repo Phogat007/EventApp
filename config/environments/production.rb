@@ -49,10 +49,10 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Log to STDOUT by default
-  config.logger = ActiveSupport::Logger.new(STDOUT)
+  config.logger = ActiveSupport::Logger.new(Rails.root.join('log', 'production.log'))
     .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
     .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
@@ -73,9 +73,31 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.perform_deliveries = true
+
+  # Action Mailer configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        'smtp.hostinger.com',
+    port:           587,
+    domain:         'eventapp.diversepixel.com', # Replace with your domain
+    user_name:      'hi@eventapp.diversepixel.com', # Your email address
+    password:       Rails.application.credentials.dig(:email_setup, :password), # Your email password
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout:   5,
+    read_timeout:   5
+  }
+
+  # Configure the default URL options for the Devise mailer in each environment.
+  config.action_mailer.default_url_options = { host: 'eventapp.diversepixel.com' }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_options = { from: 'hi@eventapp.diversepixel.com' }
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

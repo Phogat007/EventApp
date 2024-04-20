@@ -43,6 +43,14 @@
     gap: 10px;
 }
 
+.image-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    justify-items: center; /* Center items horizontally */
+}
+
+/* Ensure .image-container fits within the grid */
 .image-container {
     width: 200px;
     height: 200px;
@@ -101,7 +109,7 @@
     color: var(--link-hover-color);
 }
 </style>
-
+<%= render 'layouts/side_view'%>
 <div class="event-show">
  <h1><%= @event.name %></h1>
  <div class="event-details">
@@ -112,7 +120,8 @@
     <% if @event.winner_name.present? %>
         <p><strong>Winner:</strong> <%= @event.winner_name %></p>
     <% end %>
-    <p><strong>Approved:</strong> <%= @event.approved ? 'Yes' : 'No' %></p>
+    <p><strong>Description:</strong> <%= @event.description %></p>
+   <p><strong>Approved:</strong> <%= @event.approved ? 'Yes' : 'No' %></p>
     <p><strong>Created by:</strong> <%= @event.user.name %><%= @event.user.is_admin ? ' (admin)' : '' %></p></p>
  </div>
 
@@ -137,7 +146,3 @@
     <% end %>
  </div>
 </div>
-
-<%# <% if @event.approved
- <%= link_to 'Download Event Details', download_event_path(@event), class: "download-link"
-<% end %>

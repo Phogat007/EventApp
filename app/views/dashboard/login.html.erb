@@ -76,9 +76,40 @@
           <div class="signin-link">
             <p>Don't have an Account ?</p>
             <a href="#" id="signup-btn">Register</a>
+
           </div>
+            <%= link_to "Forgot your password?", new_password_path(@user) %><br />
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  var formWrapper = document.getElementsByClassName("form-wrapper")[0];
+  var signInBtn = document.getElementById("signin-btn");
+  var signUpBtn = document.getElementById("signup-btn");
+
+  function showSignInForm() {
+    console.log("Showing sign-in form");
+    formWrapper.style.transform = "translateX(-350px)";
+  }
+
+  function showSignUpForm() {
+    console.log("Showing sign-up form");
+    formWrapper.style.transform = "translateX(0px)";
+  }
+  signInBtn.onclick = function () {
+    showSignInForm();
+  };
+
+  signUpBtn.onclick = function () {
+    showSignUpForm();
+  };
+
+  // Add this script to your application layout or specific pages where you want to prevent going back
+window.history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    window.history.pushState(null, null, document.URL);
+});
+
+</script>

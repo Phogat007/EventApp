@@ -50,7 +50,6 @@
   cursor:  pointer;
 }
 .logout-link:hover {
-  background-color: #ff0224a2;
   color: #fff;
 }
 
@@ -105,6 +104,22 @@
   color: white;
   font-size: 12px;
 }
+/* app/assets/stylesheets/application.css */
+.form-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ }
+ 
+ /* Add a horizontal line between the tables */
+ .table-separator {
+  border-top: 1px solid #ccc; /* Adjust color and thickness as needed */
+  margin-top: 20px; /* Adjust space above the line */
+  margin-bottom: 20px; /* Adjust space below the line */
+ }
 
 /* Style the bell icon */
 .links .fa-bell {

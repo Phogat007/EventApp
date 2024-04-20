@@ -15,7 +15,7 @@
       height: 100vh;
       background-color: #f4f4f4;
     }
-    form {
+    .form-class {
       width: 400px;
       padding: 20px;
       background-color: #fff;
@@ -58,8 +58,9 @@
     <%= javascript_importmap_tags %>
 </head>
 <body>
+  <%= render 'layouts/side_view'%>
 
-  <%= form_with(model: @event, local: true, id: "eventForm") do |form| %>
+  <%= form_with(model: @event, local: true, id: "eventForm", class: "form-class") do |form| %>
  <div>
     <%= form.label :name, "Event Name:" %>
     <%= form.text_field :name, required: true %>
@@ -90,95 +91,21 @@
     <div class="error" id="departmentError"></div>
  </div>
 
- <!--<div>
-    <%= form.label :winner_name, "Winner Name:" %>
-    <%= form.text_field :winner_name %>
- </div>
-
  <div>
-    <%= form.label :approved, "Approved:" %>
-    <%= form.check_box :approved %>
- </div>-->
+ <%= form.label :description, "Description:" %>
+ <%= form.text_area :description, class: "form-input", required: true %>
+</div>
 
  <div>
     <%= form.submit "Submit" %>
  </div>
 <% end %>
-
-  <%# <script>
-    const form = document.getElementById('eventForm');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      if (validateForm()) {
-        // Form is valid, you can submit the data or perform any action here
-        alert('Form submitted successfully!');
-        form.reset();
-      }
-    });
-
-    function validateForm() {
-      let isValid = true;
-
-      // Resetting all error messages
-      const errorMessages = document.querySelectorAll('.error');
-      errorMessages.forEach(function(element) {
-        element.textContent = '';
-      });
-
-      // Event Name validation
-      const eventName = document.getElementById('eventName').value;
-      if (!eventName) {
-        document.getElementById('eventNameError').textContent = 'Event Name is required';
-        isValid = false;
-      }
-
-      // Event Date validation
-      const eventDate = document.getElementById('eventDate').value;
-      if (!eventDate) {
-        document.getElementById('eventDateError').textContent = 'Date is required';
-        isValid = false;
-      }
-
-      // Event Place validation
-      const eventPlace = document.getElementById('eventPlace').value;
-      if (!eventPlace) {
-        document.getElementById('eventPlaceError').textContent = 'Place is required';
-        isValid = false;
-      }
-
-      // Coordinator Name validation
-      const coordinatorName = document.getElementById('coordinatorName').value;
-      if (!coordinatorName) {
-        document.getElementById('coordinatorNameError').textContent = 'Coordinator Name is required';
-        isValid = false;
-      }
-
-      // Department validation
-      const department = document.getElementById('department').value;
-      if (!department) {
-        document.getElementById('departmentError').textContent = 'Department is required';
-        isValid = false;
-      }
-
-      // Event Photos validation
-      const eventPhotos = document.getElementById('eventPhotos').files;
-      if (eventPhotos.length > 4) {
-        document.getElementById('eventPhotosError').textContent = 'Maximum 4 photos allowed';
-        isValid = false;
-      } else {
-        for (let i = 0; i < eventPhotos.length; i++) {
-          const photoType = eventPhotos[i].type.split('/')[1];
-          if (photoType !== 'jpeg' && photoType !== 'png') {
-            document.getElementById('eventPhotosError').textContent = 'Photos must be in JPEG or PNG format';
-            isValid = false;
-            break;
-          }
-        }
-      }
-
-      return isValid;
-    }
-  </script> %>
+<script>
+  // Add this script to your application layout or specific pages where you want to prevent going back
+window.history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    window.history.pushState(null, null, document.URL);
+});
+</script>
 </body>
 </html>

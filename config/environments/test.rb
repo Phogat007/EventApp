@@ -10,6 +10,28 @@ Rails.application.configure do
 
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
+  # Action Mailer configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        'smtp.hostinger.com',
+    port:           587,
+    domain:         '127.0.0.1:3000', # Replace with your domain
+    user_name:      'hi@eventapp.diversepixel.com', # Your email address
+    password:       Rails.application.credentials.dig(:email_setup, :password), # Your email password
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout:   5,
+    read_timeout:   5
+  }
+
+  # Configure the default URL options for the Devise mailer in each environment.
+  config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
+
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_options = { from: 'hi@eventapp.diversepixel.com' }
 
   # Eager loading loads your entire application. When running a single test locally,
   # this is usually not necessary, and can slow down your test suite. However, it's

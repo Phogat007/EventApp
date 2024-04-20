@@ -1,4 +1,133 @@
-<%= render 'layouts/side_view'%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Section</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+
+        .about-section {
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .about-heading {
+            width: 100%;
+            height: auto;
+            padding: 40px 10%;
+            font-size: 35px;
+            font-weight: 500;
+            background-color: blueviolet;
+            color: #fff;
+        }
+
+        .content-container {
+            padding: 100px 10%;
+        }
+
+        .content-container .description {
+            font-size: 17px;
+            line-height: 27px;
+            color: #444;
+            margin-bottom: 100px;
+        }
+
+        .team-container {
+            padding: 0 80px;
+        }
+
+        .team-heading {
+            font-size: 23px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .team-heading::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            border-radius: 10px;
+            background-color: #333;
+            bottom: -4px;
+            left: 0;
+        }
+
+        .team-cards {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0 100px;
+        }
+
+        .team-card {
+            width: 100%;
+            height: 440px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 5px 5px 30px #33333356;
+        }
+
+        .text-box {
+            padding-left: 20px;
+        }
+
+        .text-box .member-name {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .text-box .designation {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <%= render 'layouts/side_view'%>
 <div class= 'home-container'>
-    <p>About details here, keep the above div as is</p>
-</div>
+    <section class="about-section">
+        <div class="about-heading">About Us</div>
+        <div class="content-container">
+            EventApp is an event management system tailored for educational institutions. It simplifies event planning and organization, providing a streamlined platform for administrators, faculty, and students.
+            <br><br>
+            <strong>Features:</strong>
+            <ul>
+                <li><strong>Intuitive Event Creation</strong>: Easily set up events with details such as title, description, date, time, location, and more.</li>
+                <li><strong>Event Approval Workflow</strong>: Implement a pending event system for administrators to review and approve events.</li>
+                <li><strong>User Management</strong>: Basic user registration and login, with role-based permissions for faculty, and administrators.</li>
+                <li><strong>Event History</strong>: Track past events for reporting and analysis.</li>
+            </ul>
+            <br>
+            Overall, EventApp serves as a valuable asset for enhancing productivity, collaboration, and efficiency within the educational ecosystem. By providing a centralized platform for managing events, it empowers stakeholders to achieve their goals and drive positive outcomes across the institution.
+            </p>
+            <div class="team-container">
+            </div>
+        </div>
+    </section>
+    </div>
+
+</body>
+
+</html>

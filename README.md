@@ -66,9 +66,15 @@ For production environments, consider a hosting provider like DigitalOcean, Fly,
 - [bhavyansh001](https://github.com/bhavyansh001)
 - [phogat007](https://github.com/phogat007)
 
+
 ## Troubleshooting
 
 If you encounter any issues during setup or usage, refer to the troubleshooting section in our documentation or reach out to us via [GitHub Issues](https://github.com/bhavyansh001/EventApp/issues).
+
+## Troubleshooting
+
+If you encounter any issues during setup or usage, refer to the troubleshooting section in our documentation or reach out to us via [GitHub Issues](https://github.com/Phogat007/EventApp/issues).
+
 
 ## License
 

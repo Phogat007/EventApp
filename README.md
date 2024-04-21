@@ -9,6 +9,12 @@ EventApp is an event management system tailored for educational institutions. It
 - **User Management**: Basic user registration and login, with role-based permissions for faculty, and administrators.
 - **Event History**: Track past events for reporting and analysis.
 
+## Time-Saving PDF Report Generation
+
+EventApp includes a powerful feature for generating PDF reports in a predefined pattern specified by your organization. While traditionally, this process may take 15-20 minutes in Microsoft Word, EventApp completes it in just 1-2 minutes, significantly reducing the time required and helping to avoid time clashes in busy schedules.
+
+This feature not only saves time but also ensures consistency and efficiency in generating reports for various events within your educational institution.
+
 ## Installation
 
 ### Prerequisites
@@ -59,3 +65,15 @@ For production environments, consider a hosting provider like DigitalOcean, Fly,
 
 - bhavyansh001
 - phogat007
+
+
+## Troubleshooting
+
+If you encounter any issues during setup or usage, refer to the troubleshooting section in our documentation or reach out to us via GitHub Issues.
+
+## License
+
+[MIT License](LICENSE)
+
+## Contributing
+We welcome contributions from the community! If you'd like to contribute to EventApp, please check out our [contribution guidelines](CONTRIBUTING.md) for more information.

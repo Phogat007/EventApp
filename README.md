@@ -67,14 +67,3 @@ For production environments, consider a hosting provider like DigitalOcean, Fly,
 - [phogat007](https://github.com/phogat007)
 
 
-## Troubleshooting
-
-If you encounter any issues during setup or usage, refer to the troubleshooting section in our documentation or reach out to us via [GitHub Issues](https://github.com/bhavyansh001/EventApp/issues).
-
-
-## License
-
-[MIT License](LICENSE)
-
-## Contributing
-We welcome contributions from the community! If you'd like to contribute to EventApp, please check out our [contribution guidelines](CONTRIBUTING.md) for more information.

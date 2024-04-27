@@ -1,6 +1,7 @@
 require 'open-uri'
 class EventsController < ApplicationController
  before_action :set_event, only: [:show, :edit, :update, :destroy]
+ before_action :verify_user, only: [:edit, :update, :destroy]
 
  def download
   @event = Event.find(params[:id])
@@ -130,6 +131,12 @@ end
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:name, :date, :place, :description, :coordinator_name, :department, :winner_name, :approved, :user_id, event_photos: [])
+    end
+
+    def verify_user
+      unless @event.user_id == current_user.id || current_user.is_admin
+        redirect_to root_path, alert: "You are not authorized to perform this action."
+     end
     end
 
   end
